@@ -1,0 +1,85 @@
+{
+  "name": "cineforge-pro",
+  "version": "1.0.0",
+  "description": "CineForge Pro — Editor de Vídeo Cinematográfico",
+  "main": "electron/main.js",
+  "author": "CineForge Pro",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:win:portable": "electron-builder --win portable",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --mac --linux"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.cineforge.pro",
+    "productName": "CineForge Pro",
+    "copyright": "Copyright © 2024 CineForge Pro",
+    "forceCodeSigning": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "manifest.json",
+      "sw.js",
+      "src/**/*",
+      "icons/**/*",
+      "electron/**/*",
+      "!node_modules"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        },
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icons/icon.png",
+      "requestedExecutionLevel": "asInvoker",
+      "signAndEditExecutable": false,
+      "certificateFile": null,
+      "certificatePassword": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CineForge Pro",
+      "artifactName": "CineForge-Pro-Setup-${version}.exe"
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "icon": "icons/icon.icns",
+      "category": "public.app-category.video",
+      "darkModeSupport": true
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "icons/icon.png",
+      "category": "AudioVideo"
+    },
+    "publish": null
+  },
+  "allowScripts": {
+    "electron@28.3.3": true
+  }
+}

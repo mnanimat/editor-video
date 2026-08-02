@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0d0d0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Editor de Vídeo MNAnimat — Gratuito, Sem Anúncios</title>
+  <meta name="description" content="Conheça o Editor de Vídeo MNAnimat, um aplicativo gratuito, sem anúncios e sem planos de pagamentos. Edição cinematográfica profissional no seu navegador.">
+  <meta name="author" content="Micael Nildo Oliveira Souza">
+  <meta name="application-name" content="Editor de Vídeo MNAnimat">
+  <meta name="keywords" content="editor de video, gratuito, sem anuncios, efeitos visuais, color grading, motion design, MNAnimat">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/splash.css">
+</head>
+<body>
+
+  <!-- ═══════════════ SPLASH SCREEN — TERMOS E VERIFICAÇÃO ═══════════════ -->
+  <div id="splash-overlay">
+    <div class="splash-content">
+
+      <!-- Logo + Nome -->
+      <div class="splash-logo-area">
+        <svg class="splash-logo-icon" viewBox="0 0 80 80" fill="none">
+          <defs>
+            <linearGradient id="splashGrad" x1="0" y1="0" x2="80" y2="80">
+              <stop offset="0%" stop-color="#00c8ff"/>
+              <stop offset="100%" stop-color="#9b59ff"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Outer ring -->
+          <circle cx="40" cy="40" r="36" fill="none" stroke="url(#splashGrad)" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="40" cy="40" r="28" fill="url(#splashGrad)" opacity="0.1"/>
+          <!-- Film strip holes -->
+          <rect x="6" y="14" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="6" y="26" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="6" y="38" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="6" y="50" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="6" y="62" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="66" y="14" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="66" y="26" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="66" y="38" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="66" y="50" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <rect x="66" y="62" width="8" height="6" rx="1.5" fill="url(#splashGrad)" opacity="0.6"/>
+          <!-- Play button -->
+          <polygon points="30,26 58,40 30,54" fill="url(#splashGrad)" filter="url(#glow)"/>
+          <!-- Center dot -->
+          <circle cx="40" cy="40" r="4" fill="white" opacity="0.3"/>
+        </svg>
+        <div class="splash-app-name">Editor de Vídeo <em>MNAnimat</em></div>
+        <div class="splash-tagline">Edição cinematográfica profissional</div>
+      </div>
+
+      <!-- Badges -->
+      <p class="splash-promo">Conheça o <strong>Editor de Vídeo MNAnimat</strong>, um aplicativo gratuito, sem anúncios e sem planos de pagamentos.</p>
+      <div class="splash-badges">
+        <span class="splash-badge green">✓ 100% Gratuito</span>
+        <span class="splash-badge blue">✓ Sem Anúncios</span>
+        <span class="splash-badge purple">✓ Sem Assinatura</span>
+        <span class="splash-badge green">✓ Sem Coleta de Dados</span>
+        <span class="splash-badge blue">✓ Open Source MIT</span>
+      </div>
+
+      <!-- Card Termos -->
+      <div class="splash-terms-card">
+        <!-- Abas -->
+        <div class="splash-tabs">
+          <button class="splash-tab active" data-stab="terms" onclick="switchSplashTab('terms',this)">Termos de Uso</button>
+          <button class="splash-tab" data-stab="privacy" onclick="switchSplashTab('privacy',this)">Privacidade</button>
+          <button class="splash-tab" data-stab="license" onclick="switchSplashTab('license',this)">Licença MIT</button>
+          <button class="splash-tab" data-stab="about" onclick="switchSplashTab('about',this)">Sobre</button>
+        </div>
+
+        <!-- Termos de Uso -->
+        <div class="splash-tab-content active" id="stab-terms">
+          <h3>Termos de Uso — Editor de Vídeo MNAnimat</h3>
+          <p>Última atualização: 2024. Ao utilizar este aplicativo, você concorda com os termos abaixo.</p>
+
+          <h4>1. Aceitação dos Termos</h4>
+          <p>O uso do Editor de Vídeo MNAnimat implica na plena aceitação destes Termos de Uso. Se você não concordar, não utilize o aplicativo.</p>
+
+          <h4>2. Uso Permitido</h4>
+          <ul>
+            <li>Criação de conteúdo audiovisual próprio ou com autorização dos titulares;</li>
+            <li>Uso educacional, pessoal, comercial e profissional;</li>
+            <li>Distribuição de obras criadas, desde que respeitados direitos de terceiros.</li>
+          </ul>
+
+          <h4>3. Uso Proibido</h4>
+          <ul>
+            <li>Edição de conteúdo que viole direitos autorais de terceiros sem autorização;</li>
+            <li>Criação de conteúdo ilegal, difamatório, discriminatório ou que viole leis brasileiras (Lei 9.279/96, Lei 9.610/98);</li>
+            <li>Decompilação, engenharia reversa para fins maliciosos;</li>
+            <li>Uso para criação de deepfakes não consensuais.</li>
+          </ul>
+
+          <h4>4. Responsabilidade</h4>
+          <p>O desenvolvedor não se responsabiliza pelo conteúdo criado pelos usuários. Todo processamento ocorre <strong>localmente no dispositivo</strong> — nenhum vídeo é enviado a servidores externos.</p>
+
+          <h4>5. Propriedade Intelectual</h4>
+          <p>O aplicativo é disponibilizado sob a <strong>Licença MIT</strong>. Você mantém todos os direitos sobre os vídeos que criar.</p>
+
+          <h4>6. Menores de Idade</h4>
+          <p>O uso por menores de 13 anos requer autorização e supervisão dos responsáveis legais, conforme o <strong>ECA (Lei nº 8.069/1990)</strong> e a <strong>LGPD (Lei nº 13.709/2018)</strong>. Menores de 18 anos devem ter ciência dos pais ou responsáveis.</p>
+
+          <h4>7. Foro</h4>
+          <p>Estes termos são regidos pela legislação brasileira. Eventuais disputas serão resolvidas no foro da comarca do desenvolvedor, no Brasil.</p>
+        </div>
+
+        <!-- Privacidade -->
+        <div class="splash-tab-content" id="stab-privacy">
+          <h3>Política de Privacidade — LGPD Compliant</h3>
+          <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD)</strong>.</p>
+
+          <h4>Dados que NÃO coletamos</h4>
+          <ul>
+            <li>Não coletamos nenhum dado pessoal;</li>
+            <li>Não enviamos vídeos, áudios ou imagens a servidores;</li>
+            <li>Não usamos cookies de rastreamento;</li>
+            <li>Não exibimos anúncios;</li>
+            <li>Não vendemos dados a terceiros;</li>
+            <li>Não criamos perfis de usuário.</li>
+          </ul>
+
+          <h4>Processamento Local</h4>
+          <p>Todo o processamento de vídeo, áudio e efeitos visuais ocorre <strong>exclusivamente no seu dispositivo</strong>, utilizando tecnologias do navegador (WebGL, Web Audio API, Canvas 2D). Nenhum arquivo é transmitido.</p>
+
+          <h4>Armazenamento Local</h4>
+          <p>Preferências e projetos podem ser salvos no <strong>armazenamento local do navegador (localStorage)</strong>, acessível apenas no seu dispositivo.</p>
+
+          <h4>Direitos do Titular</h4>
+          <p>Como nenhum dado pessoal é coletado, não há necessidade de solicitação de exclusão. Para dúvidas: os dados locais podem ser excluídos limpando os dados do navegador.</p>
+
+          <h4>Menores de Idade (LGPD Art. 14)</h4>
+          <p>O tratamento de dados de crianças (menores de 12 anos) requer consentimento dos responsáveis. Este app não coleta dados, mas recomendamos supervisão parental para menores.</p>
+        </div>
+
+        <!-- Licença MIT -->
+        <div class="splash-tab-content" id="stab-license">
+          <h3>Licença MIT — Versão Original (Inglês)</h3>
+          <p><strong>MIT License</strong><br>Copyright (c) 2024 Micael Nildo Oliveira Souza</p>
+          <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+          <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+          <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</p>
+
+          <h3 style="margin-top:16px">Licença MIT — Tradução para Português</h3>
+          <p><em>(Tradução não oficial. O texto em inglês é o juridicamente vinculante.)</em></p>
+          <p><strong>Licença MIT</strong><br>Copyright (c) 2024 Micael Nildo Oliveira Souza</p>
+          <p>É concedida permissão, gratuitamente, a qualquer pessoa que obtenha uma cópia deste software e dos arquivos de documentação associados, para lidar com o Software sem restrições, incluindo os direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software.</p>
+          <p>O aviso de copyright e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.</p>
+          <p>O SOFTWARE É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITA.</p>
+        </div>
+
+        <!-- Sobre -->
+        <div class="splash-tab-content" id="stab-about">
+          <h3>Sobre o Editor de Vídeo MNAnimat</h3>
+          <ul>
+            <li><strong>Nome:</strong> Editor de Vídeo MNAnimat</li>
+            <li><strong>Versão:</strong> 1.0.0</li>
+            <li><strong>Desenvolvedor:</strong> Micael Nildo Oliveira Souza</li>
+            <li><strong>Desenvolvimento:</strong> Com auxílio de inteligência artificial</li>
+            <li><strong>Licença:</strong> MIT License (Código Aberto)</li>
+            <li><strong>Preço:</strong> Gratuito — sem anúncios — sem planos de pagamento</li>
+            <li><strong>Plataformas:</strong> Navegador (PWA), Windows (Electron), Android</li>
+            <li><strong>Tecnologias:</strong> HTML5, WebGL 2.0, Web Audio API, GLSL, Canvas 2D</li>
+          </ul>
+          <h4>Recursos Principais</h4>
+          <ul>
+            <li>Timeline multi-trilha profissional</li>
+            <li>Color grading cinematográfico (Lift/Gamma/Gain, curvas, scopes)</li>
+            <li>14+ efeitos visuais com pipeline WebGL</li>
+            <li>Sistema de partículas (fogo, chuva, neve, bokeh)</li>
+            <li>Motion Designer com keyframes e presets</li>
+            <li>9 transições cinematográficas</li>
+            <li>Exportação MP4/WebM/GIF em até 4K</li>
+          </ul>
+          <p style="margin-top:10px;font-style:italic;color:rgba(255,255,255,0.4)">
+            "Edição cinematográfica profissional ao alcance de todos, sem custos."
+          </p>
+        </div>
+
+        <!-- Verificação de Idade -->
+        <div class="splash-age-gate">
+          <div class="splash-age-label">🔞 Verificação de Idade (conforme ECA e LGPD)</div>
+          <div class="splash-age-options">
+            <label class="age-opt"><input type="radio" name="age" value="18plus" onchange="onAgeChange(this)"> Tenho 18 anos ou mais</label>
+            <label class="age-opt"><input type="radio" name="age" value="13to17" onchange="onAgeChange(this)"> Tenho entre 13 e 17 anos</label>
+            <label class="age-opt"><input type="radio" name="age" value="under13" onchange="onAgeChange(this)"> Tenho menos de 13 anos</label>
+          </div>
+          <div class="age-warning" id="age-warning-minor">
+            ⚠️ <strong>Para menores de 13 anos:</strong> O uso deste aplicativo requer autorização e supervisão de um responsável legal, conforme o ECA (Lei nº 8.069/1990) e a LGPD (Lei nº 13.709/2018). Por favor, obtenha permissão antes de continuar.
+          </div>
+          <div class="age-warning" id="age-warning-teen" style="border-color:rgba(255,165,0,0.3);background:rgba(255,165,0,0.08);color:#ffa040;">
+            ℹ️ <strong>Para maiores de 13 e menores de 18 anos:</strong> Recomendamos que seus pais ou responsáveis legais estejam cientes do uso deste aplicativo.
+          </div>
+        </div>
+
+        <!-- Checkboxes de aceite -->
+        <div class="splash-checks">
+          <label class="splash-check-item">
+            <input type="checkbox" id="chk-terms" onchange="updateSplashBtn()">
+            <span class="splash-check-label">Declaro que li e aceito os <a href="#" onclick="switchSplashTab('terms')">Termos de Uso</a> e a <a href="#" onclick="switchSplashTab('privacy')">Política de Privacidade</a>.</span>
+          </label>
+          <label class="splash-check-item">
+            <input type="checkbox" id="chk-age" onchange="updateSplashBtn()">
+            <span class="splash-check-label">Confirmo que selecionei minha faixa etária corretamente e, se menor de 18 anos, tenho ciência ou autorização de meu responsável legal.</span>
+          </label>
+          <label class="splash-check-item">
+            <input type="checkbox" id="chk-license" onchange="updateSplashBtn()">
+            <span class="splash-check-label">Compreendo que este software é distribuído sob a <a href="#" onclick="switchSplashTab('license')">Licença MIT</a>, de código aberto, gratuito e sem garantias.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Botão de entrada + créditos -->
+      <div class="splash-footer">
+        <button class="splash-enter-btn" id="splash-enter-btn" onclick="enterApp()">Entrar no Editor ▶</button>
+        <div class="splash-meta">
+          <span class="splash-version">v1.0.0</span>
+          <span class="splash-mit-badge">MIT License</span>
+        </div>
+        <div class="splash-dev-credit">
+          Desenvolvido por <strong>Micael Nildo Oliveira Souza</strong> · Com auxílio de inteligência artificial
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ═══════════════ FIM DO SPLASH ═══════════════ -->
+
+  <!-- ═══════════════ TOP HEADER ═══════════════ -->
+  <header class="app-header" id="app-header">
+    <div class="header-logo">
+      <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="14" fill="url(#lg1)"/>
+        <path d="M11 10 L23 16 L11 22 Z" fill="white"/>
+        <circle cx="16" cy="16" r="5" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="32" y2="32">
+            <stop offset="0%" stop-color="#00c8ff"/>
+            <stop offset="100%" stop-color="#9b59ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="logo-text">MNAnimat <em>Editor</em></span>
+    </div>
+
+    <nav class="menu-bar" id="menu-bar">
+      <button class="menu-item" data-menu="file">Arquivo</button>
+      <button class="menu-item" data-menu="edit">Editar</button>
+      <button class="menu-item" data-menu="view">Visualizar</button>
+      <button class="menu-item" data-menu="effects">Efeitos</button>
+      <button class="menu-item" data-menu="color">Cor</button>
+      <button class="menu-item" data-menu="audio">Áudio</button>
+    </nav>
+
+    <div class="transport-bar">
+      <button class="tr-btn" id="btn-go-start" title="Início (Home)">
+        <svg viewBox="0 0 16 16"><path d="M3 3v10H5V3H3zm2.5 5L13 13V3L5.5 8z" fill="currentColor"/></svg>
+      </button>
+      <button class="tr-btn" id="btn-step-back" title="Frame anterior">
+        <svg viewBox="0 0 16 16"><path d="M11 3L5 8l6 5V3z" fill="currentColor"/></svg>
+      </button>
+      <button class="tr-btn tr-play" id="btn-play" title="Play/Pause (Espaço)">
+        <svg class="icon-play" viewBox="0 0 16 16"><path d="M4 3l9 5-9 5V3z" fill="currentColor"/></svg>
+        <svg class="icon-pause hidden" viewBox="0 0 16 16"><rect x="3" y="3" width="4" height="10" fill="currentColor"/><rect x="9" y="3" width="4" height="10" fill="currentColor"/></svg>
+      </button>
+      <button class="tr-btn" id="btn-step-fwd" title="Próximo frame">
+        <svg viewBox="0 0 16 16"><path d="M5 3l6 5-6 5V3z" fill="currentColor"/></svg>
+      </button>
+      <button class="tr-btn" id="btn-go-end" title="Fim">
+        <svg viewBox="0 0 16 16"><path d="M11 3v10h2V3h-2zM3 3l7.5 5L3 13V3z" fill="currentColor"/></svg>
+      </button>
+      <div class="timecode-display">
+        <span class="timecode" id="timecode-current">00:00:00:00</span>
+        <span class="timecode-sep">/</span>
+        <span class="timecode timecode-total" id="timecode-total">00:00:00:00</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="project-meta">
+        <select class="hdr-select" id="proj-fps" title="Frame rate">
+          <option value="23.976">23.976</option>
+          <option value="24" selected>24 fps</option>
+          <option value="25">25</option>
+          <option value="29.97">29.97</option>
+          <option value="30">30</option>
+          <option value="60">60</option>
+        </select>
+        <select class="hdr-select" id="proj-res" title="Resolução">
+          <option value="1280x720">1280×720</option>
+          <option value="1920x1080" selected>1920×1080</option>
+          <option value="2560x1440">2560×1440</option>
+          <option value="3840x2160">4K UHD</option>
+        </select>
+      </div>
+      <button class="btn-render" id="btn-render-main">
+        <svg viewBox="0 0 16 16"><path d="M13 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zM8 11l-4-4h2.5V5h3v2H12L8 11z" fill="currentColor"/></svg>
+        Exportar
+      </button>
+    </div>
+
+    <!-- Dropdown Menus -->
+    <div class="dropdown-menu hidden" id="dropdown-file">
+      <div class="dd-item" data-action="new-project">Novo Projeto</div>
+      <div class="dd-item" data-action="open-project">Abrir Projeto...</div>
+      <div class="dd-item" data-action="save-project">Salvar Projeto</div>
+      <div class="dd-item" data-action="save-as">Salvar Como...</div>
+      <div class="dd-sep"></div>
+      <div class="dd-item" data-action="import-media">Importar Mídia...</div>
+      <div class="dd-item" data-action="import-lut">Importar LUT...</div>
+      <div class="dd-sep"></div>
+      <div class="dd-item" data-action="export">Exportar Vídeo...</div>
+      <div class="dd-item" data-action="export-frame">Exportar Frame Atual</div>
+    </div>
+    <div class="dropdown-menu hidden" id="dropdown-edit">
+      <div class="dd-item" data-action="undo">Desfazer <span class="dd-kbd">Ctrl+Z</span></div>
+      <div class="dd-item" data-action="redo">Refazer <span class="dd-kbd">Ctrl+Y</span></div>
+      <div class="dd-sep"></div>
+      <div class="dd-item" data-action="cut">Cortar <span class="dd-kbd">Ctrl+X</span></div>
+      <div class="dd-item" data-action="copy">Copiar <span class="dd-kbd">Ctrl+C</span></div>
+      <div class="dd-item" data-action="paste">Colar <span class="dd-kbd">Ctrl+V</span></div>
+      <div class="dd-sep"></div>
+      <div class="dd-item" data-action="select-all">Selecionar Tudo <span class="dd-kbd">Ctrl+A</span></div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ PAGE TABS ═══════════════ -->
+  <div class="page-tabs" id="page-tabs">
+    <button class="page-tab active" data-page="edit">
+      <svg viewBox="0 0 16 16"><path d="M13.85 3.85l-1.7-1.7a.5.5 0 00-.7 0L3 10.5V13h2.5l8.35-8.35a.5.5 0 000-.8z" fill="currentColor"/></svg>
+      Editar
+    </button>
+    <button class="page-tab" data-page="color">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" fill="currentColor"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      Cor
+    </button>
+    <button class="page-tab" data-page="effects">
+      <svg viewBox="0 0 16 16"><path d="M8 2l1.5 4h4l-3.25 2.4 1.25 4L8 10l-3.5 2.4 1.25-4L2.5 6h4z" fill="currentColor"/></svg>
+      Efeitos VFX
+    </button>
+    <button class="page-tab" data-page="motion">
+      <svg viewBox="0 0 16 16"><path d="M3 8c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5-5-2.24-5-5z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      Motion
+    </button>
+    <button class="page-tab" data-page="audio">
+      <svg viewBox="0 0 16 16"><path d="M2 5h3l4-3v12L5 11H2z" fill="currentColor"/><path d="M12 5a4 4 0 010 6M10 6a2 2 0 010 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      Áudio
+    </button>
+    <button class="page-tab" data-page="export">
+      <svg viewBox="0 0 16 16"><path d="M8 2v8m-4-4l4 4 4-4M2 12h12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      Entrega
+    </button>
+  </div>
+
+  <!-- ═══════════════ MAIN APP AREA ═══════════════ -->
+  <main class="app-main" id="app-main">
+
+    <!-- ━━━━━━━━━━━━ EDIT PAGE ━━━━━━━━━━━━ -->
+    <div class="page active" id="page-edit">
+      <div class="edit-layout" id="edit-layout">
+
+        <!-- LEFT PANEL: Media Browser -->
+        <aside class="panel panel-left" id="panel-media">
+          <div class="panel-tabs">
+            <button class="panel-tab active" data-ptab="media">Mídia</button>
+            <button class="panel-tab" data-ptab="fx-lib">Efeitos</button>
+            <button class="panel-tab" data-ptab="luts">LUTs</button>
+            <button class="panel-tab" data-ptab="titles">Títulos</button>
+          </div>
+
+          <!-- MEDIA TAB -->
+          <div class="ptab-content active" id="ptab-media">
+            <div class="media-toolbar">
+              <button class="icon-btn" id="btn-import" title="Importar Mídia">
+                <svg viewBox="0 0 16 16"><path d="M8 2v8m-4-3l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              </button>
+              <input type="text" class="search-input" placeholder="Buscar mídia..." id="media-search">
+              <button class="icon-btn" id="btn-media-grid-view" title="Grade">
+                <svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" fill="currentColor"/><rect x="9" y="2" width="5" height="5" fill="currentColor"/><rect x="2" y="9" width="5" height="5" fill="currentColor"/><rect x="9" y="9" width="5" height="5" fill="currentColor"/></svg>
+              </button>
+            </div>
+            <div class="drop-zone" id="media-drop-zone">
+              <svg class="drop-icon" viewBox="0 0 64 64"><path d="M32 8C18.75 8 8 18.75 8 32s10.75 24 24 24 24-10.75 24-24S45.25 8 32 8zm0 44C20.97 52 12 43.03 12 32S20.97 12 32 12s20 8.97 20 20-8.97 20-20 20z" fill="currentColor" opacity="0.3"/><path d="M32 20v16m-8-8l8-8 8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              <p>Arraste vídeos, imagens e áudio aqui</p>
+              <button class="btn-primary btn-sm" id="btn-browse">Selecionar Arquivos</button>
+              <input type="file" id="file-input" multiple accept="video/*,audio/*,image/*" hidden>
+            </div>
+            <div class="media-grid hidden" id="media-grid"></div>
+          </div>
+
+          <!-- EFFECTS LIB TAB -->
+          <div class="ptab-content" id="ptab-fx-lib">
+            <input type="text" class="search-input mx" placeholder="Buscar efeito..." id="fx-search">
+            <div class="fx-list" id="fx-list">
+              <div class="fx-category">
+                <div class="fx-cat-header">🎨 Color Grading</div>
+                <div class="fx-item" data-effect="colorgrade" draggable="true">Color Grade Pro</div>
+                <div class="fx-item" data-effect="curves" draggable="true">Curvas RGB</div>
+                <div class="fx-item" data-effect="hsl" draggable="true">HSL Secundário</div>
+                <div class="fx-item" data-effect="lut3d" draggable="true">LUT 3D</div>
+                <div class="fx-item" data-effect="colorwheel" draggable="true">Rodas de Cor</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">✨ Efeitos Cinematográficos</div>
+                <div class="fx-item" data-effect="blur" draggable="true">Blur Gaussiano</div>
+                <div class="fx-item" data-effect="motionblur" draggable="true">Motion Blur</div>
+                <div class="fx-item" data-effect="glow" draggable="true">Glow Cinemático</div>
+                <div class="fx-item" data-effect="bloom" draggable="true">Bloom / Lens Glow</div>
+                <div class="fx-item" data-effect="lensflare" draggable="true">Lens Flare</div>
+                <div class="fx-item" data-effect="godrays" draggable="true">God Rays / Luz Solar</div>
+                <div class="fx-item" data-effect="vignette" draggable="true">Vinheta</div>
+                <div class="fx-item" data-effect="filmgrain" draggable="true">Grão de Filme</div>
+                <div class="fx-item" data-effect="chromaber" draggable="true">Aberração Cromática</div>
+                <div class="fx-item" data-effect="tiltshift" draggable="true">Tilt-Shift</div>
+                <div class="fx-item" data-effect="dof" draggable="true">Depth of Field</div>
+                <div class="fx-item" data-effect="heatdist" draggable="true">Distorção de Calor</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">🔑 Keying &amp; Masking</div>
+                <div class="fx-item" data-effect="chromakey" draggable="true">Chroma Key (Green Screen)</div>
+                <div class="fx-item" data-effect="lumakey" draggable="true">Luma Key</div>
+                <div class="fx-item" data-effect="mask" draggable="true">Máscara Bezier</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">💥 Distorção &amp; Warp</div>
+                <div class="fx-item" data-effect="fisheye" draggable="true">Fish-Eye</div>
+                <div class="fx-item" data-effect="displacement" draggable="true">Displacement Map</div>
+                <div class="fx-item" data-effect="ripple" draggable="true">Ripple</div>
+                <div class="fx-item" data-effect="warp" draggable="true">Warp</div>
+                <div class="fx-item" data-effect="mirror" draggable="true">Espelho</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">⚡ Estilo &amp; Glitch</div>
+                <div class="fx-item" data-effect="glitch" draggable="true">Glitch Digital</div>
+                <div class="fx-item" data-effect="vhs" draggable="true">VHS Retrô</div>
+                <div class="fx-item" data-effect="pixelate" draggable="true">Pixelizar</div>
+                <div class="fx-item" data-effect="halftone" draggable="true">Halftone</div>
+                <div class="fx-item" data-effect="neon" draggable="true">Neon Glow</div>
+                <div class="fx-item" data-effect="noir" draggable="true">Film Noir</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">🔄 Transições</div>
+                <div class="fx-item" data-effect="trans-dissolve" draggable="true">Cross Dissolve</div>
+                <div class="fx-item" data-effect="trans-fade" draggable="true">Fade to Black</div>
+                <div class="fx-item" data-effect="trans-wipe" draggable="true">Wipe</div>
+                <div class="fx-item" data-effect="trans-zoom" draggable="true">Zoom Blur</div>
+                <div class="fx-item" data-effect="trans-slide" draggable="true">Slide Push</div>
+                <div class="fx-item" data-effect="trans-spin" draggable="true">Spin</div>
+                <div class="fx-item" data-effect="trans-glitch" draggable="true">Glitch</div>
+                <div class="fx-item" data-effect="trans-burn" draggable="true">Light Burn</div>
+                <div class="fx-item" data-effect="trans-iris" draggable="true">Iris Circle</div>
+              </div>
+              <div class="fx-category">
+                <div class="fx-cat-header">🌟 Partículas &amp; Gerador</div>
+                <div class="fx-item" data-effect="particles" draggable="true">Sistema de Partículas</div>
+                <div class="fx-item" data-effect="starfield" draggable="true">Campo de Estrelas</div>
+                <div class="fx-item" data-effect="smoke" draggable="true">Fumaça</div>
+                <div class="fx-item" data-effect="fire" draggable="true">Fogo</div>
+                <div class="fx-item" data-effect="rain" draggable="true">Chuva</div>
+                <div class="fx-item" data-effect="bokeh" draggable="true">Bokeh Generator</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LUTS TAB -->
+          <div class="ptab-content" id="ptab-luts">
+            <div class="lut-toolbar">
+              <button class="btn-secondary btn-sm" id="btn-import-lut">+ Importar .cube</button>
+              <input type="file" id="lut-input" accept=".cube,.3dl" hidden>
+            </div>
+            <div class="lut-grid" id="lut-grid">
+              <div class="lut-item" data-lut="cinematic">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #1a2a4a, #c8a86b)"></div>
+                <span>Cinematic</span>
+              </div>
+              <div class="lut-item" data-lut="teal-orange">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #00888a, #ff6b2b)"></div>
+                <span>Teal &amp; Orange</span>
+              </div>
+              <div class="lut-item" data-lut="vintage">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #8b6914, #c4956a)"></div>
+                <span>Vintage Film</span>
+              </div>
+              <div class="lut-item" data-lut="bleach">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #e8e0d5, #9a8a7a)"></div>
+                <span>Bleach Bypass</span>
+              </div>
+              <div class="lut-item" data-lut="noir">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #111, #888)"></div>
+                <span>Film Noir</span>
+              </div>
+              <div class="lut-item" data-lut="dayfornight">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #0a1628, #1e3355)"></div>
+                <span>Day for Night</span>
+              </div>
+              <div class="lut-item" data-lut="blockbuster">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #ff4400, #1a0033)"></div>
+                <span>Blockbuster</span>
+              </div>
+              <div class="lut-item" data-lut="arctic">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #b8e4ff, #4a9fd4)"></div>
+                <span>Arctic Blue</span>
+              </div>
+              <div class="lut-item" data-lut="golden">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #ffd700, #8b6914)"></div>
+                <span>Golden Hour</span>
+              </div>
+              <div class="lut-item" data-lut="horror">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #2d0000, #8b1a1a)"></div>
+                <span>Horror</span>
+              </div>
+              <div class="lut-item" data-lut="tropical">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #00ff88, #0088ff)"></div>
+                <span>Tropical</span>
+              </div>
+              <div class="lut-item" data-lut="chrome">
+                <div class="lut-preview" style="background: linear-gradient(135deg, #c0c0c0, #ffffff)"></div>
+                <span>Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TITLES TAB -->
+          <div class="ptab-content" id="ptab-titles">
+            <div class="titles-list">
+              <div class="title-preset" data-title="lower-third">
+                <div class="title-thumb lower-third-thumb"><span>Nome do Personagem</span></div>
+                <span>Lower Third</span>
+              </div>
+              <div class="title-preset" data-title="title-card">
+                <div class="title-thumb title-card-thumb"><span>TÍTULO</span></div>
+                <span>Title Card</span>
+              </div>
+              <div class="title-preset" data-title="subtitle">
+                <div class="title-thumb subtitle-thumb"><span>Legenda aqui</span></div>
+                <span>Subtítulo</span>
+              </div>
+              <div class="title-preset" data-title="kinetic">
+                <div class="title-thumb kinetic-thumb"><span>KINETIC</span></div>
+                <span>Kinetic Typography</span>
+              </div>
+              <div class="title-preset" data-title="credits">
+                <div class="title-thumb credits-thumb"><span>Créditos</span></div>
+                <span>End Credits</span>
+              </div>
+              <div class="title-preset" data-title="broadcast">
+                <div class="title-thumb broadcast-thumb"><span>TV TITLE</span></div>
+                <span>Broadcast</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- CENTER: Preview -->
+        <section class="preview-section" id="preview-section">
+          <div class="preview-toolbar">
+            <div class="preview-tools">
+              <button class="tool-btn active" id="tool-select" title="Seleção (V)">
+                <svg viewBox="0 0 16 16"><path d="M3 2l10 6-5.5 1.5L6 14z" fill="currentColor"/></svg>
+              </button>
+              <button class="tool-btn" id="tool-razor" title="Navalha (C)">
+                <svg viewBox="0 0 16 16"><path d="M3 5l10 6M3 11l10-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              </button>
+              <button class="tool-btn" id="tool-hand" title="Mão (H)">
+                <svg viewBox="0 0 16 16"><path d="M8 2v6M5 5v4.5M11 5v4.5M2 9.5C2 13 4 14 8 14s6-1 6-4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              </button>
+              <div class="tool-sep"></div>
+              <button class="tool-btn" id="btn-safe-zones" title="Áreas Seguras">⊡</button>
+              <button class="tool-btn" id="btn-grid" title="Grade">⊞</button>
+              <select class="preview-zoom-sel" id="preview-zoom">
+                <option value="fit" selected>Ajustar</option>
+                <option value="25">25%</option>
+                <option value="50">50%</option>
+                <option value="75">75%</option>
+                <option value="100">100%</option>
+                <option value="150">150%</option>
+                <option value="200">200%</option>
+              </select>
+            </div>
+            <div class="preview-tools-right">
+              <button class="tool-btn" id="btn-scopes-toggle" title="Scopes">
+                <svg viewBox="0 0 16 16"><rect x="2" y="10" width="2" height="4" fill="currentColor"/><rect x="5" y="7" width="2" height="7" fill="currentColor"/><rect x="8" y="4" width="2" height="10" fill="currentColor"/><rect x="11" y="2" width="2" height="12" fill="currentColor"/></svg>
+              </button>
+              <button class="tool-btn" id="btn-fullscreen" title="Tela Cheia (F)">
+                <svg viewBox="0 0 16 16"><path d="M2 2h4M2 2v4M14 2h-4M14 2v4M2 14h4M2 14v-4M14 14h-4M14 14v-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="preview-canvas-wrap" id="preview-canvas-wrap">
+            <div class="preview-safe-zones hidden" id="safe-zones-overlay">
+              <div class="safe-action"></div>
+              <div class="safe-title"></div>
+            </div>
+            <canvas id="preview-canvas"></canvas>
+            <video id="video-player" style="display:none" crossorigin="anonymous"></video>
+          </div>
+
+          <div class="scopes-bar hidden" id="scopes-bar">
+            <div class="scope-panel">
+              <div class="scope-header">
+                <button class="scope-tab-btn active" data-scope="waveform">Waveform</button>
+                <button class="scope-tab-btn" data-scope="parade">Parade</button>
+                <button class="scope-tab-btn" data-scope="vector">Vectorscope</button>
+                <button class="scope-tab-btn" data-scope="histogram">Histograma</button>
+              </div>
+              <canvas id="scope-canvas"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT PANEL: Inspector -->
+        <aside class="panel panel-right" id="panel-inspector">
+          <div class="panel-tabs">
+            <button class="panel-tab active" data-ptab="transform">Transform</button>
+            <button class="panel-tab" data-ptab="color-quick">Cor Rápida</button>
+            <button class="panel-tab" data-ptab="effects-stack">Efeitos</button>
+          </div>
+
+          <!-- TRANSFORM TAB -->
+          <div class="ptab-content active" id="ptab-transform">
+            <div class="no-clip-msg" id="no-clip-msg">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 12h32v28H8z" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/><path d="M16 20l8 8 8-8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <p>Selecione um clipe na timeline</p>
+            </div>
+            <div class="inspector-body hidden" id="inspector-body">
+              <div class="param-group">
+                <div class="param-group-title">Posição</div>
+                <div class="param-row">
+                  <label class="param-label">X</label>
+                  <input type="number" class="param-num" value="0" step="1" id="p-pos-x">
+                  <label class="param-label">Y</label>
+                  <input type="number" class="param-num" value="0" step="1" id="p-pos-y">
+                </div>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Escala
+                  <button class="link-btn" id="scale-link" title="Proporcional">🔗</button>
+                </div>
+                <div class="param-row">
+                  <label class="param-label">W</label>
+                  <input type="number" class="param-num" value="100" step="1" id="p-scale-x">
+                  <label class="param-label">H</label>
+                  <input type="number" class="param-num" value="100" step="1" id="p-scale-y">
+                </div>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Rotação</div>
+                <div class="param-row-full">
+                  <input type="range" class="param-slider" min="-360" max="360" value="0" id="p-rotation">
+                  <input type="number" class="param-num-sm" value="0" id="p-rotation-num">°
+                </div>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Opacidade</div>
+                <div class="param-row-full">
+                  <input type="range" class="param-slider" min="0" max="100" value="100" id="p-opacity">
+                  <input type="number" class="param-num-sm" value="100" id="p-opacity-num">%
+                </div>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Blend Mode</div>
+                <select class="param-select" id="p-blend-mode">
+                  <option>Normal</option><option>Multiply</option><option>Screen</option>
+                  <option>Overlay</option><option>Soft Light</option><option>Hard Light</option>
+                  <option>Color Dodge</option><option>Color Burn</option><option>Difference</option>
+                  <option>Exclusion</option><option>Hue</option><option>Saturation</option>
+                  <option>Color</option><option>Luminosity</option><option>Add</option>
+                </select>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Ponto de Âncora</div>
+                <div class="param-row">
+                  <label class="param-label">X</label>
+                  <input type="number" class="param-num" value="50" step="1" id="p-anchor-x">
+                  <label class="param-label">Y</label>
+                  <input type="number" class="param-num" value="50" step="1" id="p-anchor-y">
+                </div>
+              </div>
+              <div class="param-group">
+                <div class="param-group-title">Corte (Crop)</div>
+                <div class="crop-controls">
+                  <div class="param-row-full"><label>Topo</label><input type="range" class="param-slider" min="0" max="100" value="0" id="p-crop-top"></div>
+                  <div class="param-row-full"><label>Base</label><input type="range" class="param-slider" min="0" max="100" value="0" id="p-crop-bottom"></div>
+                  <div class="param-row-full"><label>Esquerda</label><input type="range" class="param-slider" min="0" max="100" value="0" id="p-crop-left"></div>
+                  <div class="param-row-full"><label>Direita</label><input type="range" class="param-slider" min="0" max="100" value="0" id="p-crop-right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLOR QUICK TAB -->
+          <div class="ptab-content" id="ptab-color-quick">
+            <div class="color-quick-controls">
+              <div class="param-labeled"><span>Exposição</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-5" max="5" step="0.05" value="0" data-cq="exposure"><span class="sv" id="sv-exposure">0.0</span></div>
+              </div>
+              <div class="param-labeled"><span>Contraste</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="contrast"><span class="sv" id="sv-contrast">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Highlights</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="highlights"><span class="sv" id="sv-highlights">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Shadows</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="shadows"><span class="sv" id="sv-shadows">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Whites</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="whites"><span class="sv" id="sv-whites">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Blacks</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="blacks"><span class="sv" id="sv-blacks">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Saturação</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="saturation"><span class="sv" id="sv-saturation">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Temperatura</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="temperature"><span class="sv" id="sv-temperature">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Tint</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="tint"><span class="sv" id="sv-tint">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Nitidez</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="0" max="100" value="0" data-cq="sharpness"><span class="sv" id="sv-sharpness">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Redução Ruído</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="0" max="100" value="0" data-cq="denoise"><span class="sv" id="sv-denoise">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Vinheta</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="-100" max="100" value="0" data-cq="vignette"><span class="sv" id="sv-vignette">0</span></div>
+              </div>
+              <div class="param-labeled"><span>Grão</span>
+                <div class="slider-val-row"><input type="range" class="param-slider" min="0" max="100" value="0" data-cq="grain"><span class="sv" id="sv-grain">0</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EFFECTS STACK TAB -->
+          <div class="ptab-content" id="ptab-effects-stack">
+            <div class="fx-stack-header">
+              <span>Efeitos Aplicados</span>
+              <button class="icon-btn" id="btn-add-fx">+</button>
+            </div>
+            <div class="fx-stack" id="fx-stack">
+              <div class="fx-stack-empty">Arraste efeitos da biblioteca aqui</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- TIMELINE PANEL -->
+      <div class="timeline-panel" id="timeline-panel">
+        <div class="tl-toolbar">
+          <div class="tl-tools-left">
+            <button class="tl-tool active" id="tl-select" title="Selecionar (V)">↖</button>
+            <button class="tl-tool" id="tl-razor" title="Navalha (C)">✂</button>
+            <button class="tl-tool" id="tl-ripple" title="Ripple Edit (R)">⇔</button>
+            <button class="tl-tool" id="tl-slip" title="Slip (S)">↕</button>
+            <div class="tl-sep"></div>
+            <button class="tl-btn-sm" id="tl-add-v">+ V</button>
+            <button class="tl-btn-sm" id="tl-add-a">+ A</button>
+            <button class="tl-btn-sm" id="tl-add-t">+ T</button>
+            <div class="tl-sep"></div>
+            <button class="tl-btn-sm" id="tl-undo">↩</button>
+            <button class="tl-btn-sm" id="tl-redo">↪</button>
+          </div>
+          <div class="tl-tools-right">
+            <label class="tl-label">Zoom</label>
+            <input type="range" class="tl-zoom-slider" min="1" max="200" value="20" id="tl-zoom">
+            <button class="tl-btn-sm tl-snap-btn" id="tl-snap" title="Snap">🔲 Snap</button>
+            <button class="tl-btn-sm" id="tl-fit" title="Ajustar à timeline">Fit</button>
+          </div>
+        </div>
+        <div class="tl-body" id="tl-body">
+          <div class="tl-ruler-wrap">
+            <div class="tl-track-headers">
+              <div class="tl-ruler-corner"></div>
+            </div>
+            <canvas class="tl-ruler" id="tl-ruler"></canvas>
+          </div>
+          <div class="tl-tracks-wrap" id="tl-tracks-wrap">
+            <div class="tl-track-headers" id="tl-track-headers"></div>
+            <canvas class="tl-canvas" id="tl-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ━━━━━━━━━━━━ COLOR PAGE ━━━━━━━━━━━━ -->
+    <div class="page" id="page-color">
+      <div class="color-page-layout">
+
+        <!-- Gallery strip -->
+        <div class="color-gallery" id="color-gallery">
+          <div class="gallery-empty">Nenhum clipe na timeline</div>
+        </div>
+
+        <!-- Center: Preview + Scopes -->
+        <div class="color-center-column">
+
+
+
+
+
+
+
+
+
+
+              <div class="wheel-block">
+                <canvas class="color-wheel-canvas" id="wheel-lift" data-wtype="lift" width="110" height="110"></canvas>
+                <div class="wheel-name">Lift</div>
+                <input type="range" class="wheel-lum" min="-0.3" max="0.3" step="0.001" value="0" id="wlum-lift">
+              </div>
+              <div class="wheel-block">
+                <canvas class="color-wheel-canvas" id="wheel-gamma" data-wtype="gamma" width="110" height="110"></canvas>
+                <div class="wheel-name">Gamma</div>
+                <input type="range" class="wheel-lum" min="-0.3" max="0.3" step="0.001" value="0" id="wlum-gamma">
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ━━━━━━━━━━━━ EFFECTS VFX PAGE ━━━━━━━━━━━━ -->
+
+
+
+
+
+
+
+            <div class="fx-category">
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+            <div class="motion-preset-grid">
+              <button class="motion-preset-btn" data-mpreset="zoom-in">Zoom In</button>
+              <button class="motion-preset-btn" data-mpreset="zoom-out">Zoom Out</button>
+              <button class="motion-preset-btn" data-mpreset="pan-left">Pan ←</button>
+              <button class="motion-preset-btn" data-mpreset="pan-right">Pan →</button>
+              <button class="motion-preset-btn" data-mpreset="pan-up">Pan ↑</button>
+              <button class="motion-preset-btn" data-mpreset="pan-down">Pan ↓</button>
+              <button class="motion-preset-btn" data-mpreset="ken-burns">Ken Burns</button>
+              <button class="motion-preset-btn" data-mpreset="float">Float</button>
+              <button class="motion-preset-btn" data-mpreset="shake">Shake</button>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+                <option value="480p">854×480 (480p)</option>
+                <option value="720p">1280×720 (720p HD)</option>
+                <option value="1080p" selected>1920×1080 (1080p Full HD)</option>
+                <option value="1440p">2560×1440 (2K QHD)</option>
+                <option value="4k">3840×2160 (4K UHD)</option>
+
+              </select>
+            </div>
+            <div class="export-field">
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+            <button class="btn-render-big" id="btn-start-export">
+              <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z" fill="currentColor"/></svg>
+              Iniciar Renderização
+            </button>
+
+
+          <h3>Progresso da Renderização</h3>
+          <div class="render-progress-area" id="render-progress-area">
+            <div class="render-idle">
+              <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.1)" stroke-width="4"/><path d="M26 40c0-7.73 6.27-14 14-14s14 6.27 14 14-6.27 14-14 14-14-6.27-14-14z" stroke="rgba(0,200,255,0.3)" stroke-width="4" fill="none"/><path d="M35 33l10 7-10 7V33z" fill="rgba(0,200,255,0.5)"/></svg>
+              <p>Pronto para renderizar</p>
+            </div>
+          </div>
+
+            <h4>Fila de Renderização</h4>
+
+
+
+
+
+
+    <div class="status-left">
+      <span class="status-item" id="status-msg">Pronto</span>
+    </div>
+    <div class="status-center">
+      <span class="status-item" id="status-clip">Nenhum clipe selecionado</span>
+    </div>
+
+
+    </div>
+  </footer>
+
+
+
+    <div class="modal hidden" id="modal-export">
+      <div class="modal-header">
+        <h2>Exportar Vídeo</h2>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+
+    </div>
+
+
+
+
+        <textarea class="text-editor-input" id="text-input" placeholder="Digite o texto aqui..."></textarea>
+        <div class="text-controls">
+          <select class="param-select" id="text-font">
+            <option>Inter</option><option>Roboto</option><option>Playfair Display</option>
+            <option>Bebas Neue</option><option>Oswald</option><option>Dancing Script</option>
+            <option>Cinzel</option><option>Rajdhani</option>
+          </select>
+          <input type="number" class="param-num" value="48" id="text-size">
+
+
+
+          <select class="param-select" id="text-align">
+
+          </select>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
