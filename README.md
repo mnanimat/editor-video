@@ -1,4 +1,4 @@
-# 🎬
+# 🎬 Editor de Vídeo MNAnimat
 
 **Editor de vídeo profissional de nível Hollywood** com efeitos WebGL, color grading cinema, motion design avançado, exportação HD/4K, suporte a Windows, Android e Browser.
 
